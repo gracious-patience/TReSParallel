@@ -51,7 +51,7 @@ class Net(nn.Module):
 		if cfg.network =='resnet50':
 			from resnet_modify  import resnet50 as resnet_modifyresnet
 			dim_modelt = 3840
-			modelpretrain = models.resnet50(weights="DEFAULT")
+			modelpretrain = models.resnet50(pretrained=True)
 
 		elif cfg.network =='resnet34':
 			from resnet_modify  import resnet34 as resnet_modifyresnet
