@@ -51,7 +51,8 @@ class Net(nn.Module):
 		if cfg.network =='resnet50':
 			from resnet_modify  import resnet50 as resnet_modifyresnet
 			dim_modelt = 3840
-			modelpretrain = models.resnet50(pretrained=True)
+			modelpretrain = models.resnet50()
+			modelpretrain.load_state_dict(torch.load(cfg.resnet_pretrain), strict=True)
 
 		elif cfg.network =='resnet34':
 			from resnet_modify  import resnet34 as resnet_modifyresnet
