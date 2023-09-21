@@ -7,6 +7,8 @@ import torch
 from args import Configs
 import logging
 from sklearn.model_selection import train_test_split
+import tarfile
+import os.path
 
 
 
@@ -117,7 +119,8 @@ def main(config):
     logger.info(PrintToLogg)
     logger.info('---------------------------')
 
-
+    with tarfile.open(f"{(config.svpath).split('Save_TReS')[0]}output.tar.gz", "w:gz") as tar:
+        tar.add(config.svpath, arcname=os.path.basename(config.svpath))
 
 if __name__ == '__main__':
     
