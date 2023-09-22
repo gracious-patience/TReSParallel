@@ -99,7 +99,7 @@ def main(config,device):
     test_data = test_loader.get_data()
 
 
-    solver = TReS(config,device, svPath, folder_path[config.dataset], train_index, test_index, Net)
+    solver = TReS(config, svPath, folder_path[config.dataset], train_index, test_index, Net)
     version_test_save = 1000
     srcc_computed, plcc_computed = solver.test(test_data, version_test_save, svPath, config.seed, pretrained=1)
     print('srcc_computed {}, plcc_computed {}'.format(srcc_computed, plcc_computed))
